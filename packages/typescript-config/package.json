@@ -1,9 +1,20 @@
 {
-  "name": "@repo/typescript-config",
-  "version": "0.0.0",
+  "name": "@anitube/tsconfig",
+  "version": "0.0.1",
+  "description": "Typescript config for anitube",
   "private": true,
-  "license": "MIT",
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "author": {
+    "name": "Ariyaman Debnath",
+    "email": "ariyamandebnath.ad@gmail.com",
+    "url": "https://github.com/ArDnath"
+  },
+  "license": "AGPL-3.0-only",
+  "files": [
+    "base.json",
+    "nextjs.json",
+    "react-library.json"
+  ]
 }
