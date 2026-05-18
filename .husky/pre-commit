@@ -1,5 +1,1 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-# perform actions on staged files
-pnpm run lint-staged
+pnpm exec lint-staged

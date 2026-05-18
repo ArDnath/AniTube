@@ -1,5 +1,5 @@
 {
-  "extends": "@repo/typescript-config/nextjs.json",
+  "extends": "@anitube/tsconfig/nextjs.json",
   "compilerOptions": {
     "plugins": [
       {
