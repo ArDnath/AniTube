@@ -31,7 +31,6 @@
     "graphql-tag": "^2.12.6"
   },
   "devDependencies": {
-    "@anitube/eslint-config": "workspace:*",
     "@anitube/tsconfig": "workspace:*",
     "@types/node": "^22.15.3",
     "eslint": "^9.39.1",

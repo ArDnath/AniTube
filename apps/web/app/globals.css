@@ -1,13 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fef3c7; /* yellow-100 for light brutalist feel */
+  --foreground: #000000;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #1a1a1a;
+  --foreground: #ededed;
 }
 
 html,
@@ -19,6 +21,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
+  font-family: var(--font-geist-sans), sans-serif;
 }
 
 * {
@@ -32,19 +35,182 @@ a {
   text-decoration: none;
 }
 
-.imgDark {
-  display: none;
+/* Custom scrollbar for brutalist aesthetic */
+::-webkit-scrollbar {
+  width: 12px;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+::-webkit-scrollbar-track {
+  background: var(--background);
+  border-left: 4px solid #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fbbf24; /* yellow-400 */
+  border: 3px solid #000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b; /* yellow-500 */
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #a78bfa; /* purple-400 */
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #8b5cf6; /* purple-500 */
+}
+
+/* Brutalist focus styles */
+*:focus-visible {
+  outline: 4px solid #000;
+  outline-offset: 4px;
+}
+
+.dark *:focus-visible {
+  outline: 4px solid #fbbf24;
+}
+
+/* Selection styles */
+::selection {
+  background: #fbbf24;
+  color: #000;
+}
+
+.dark ::selection {
+  background: #a78bfa;
+  color: #fff;
+}
+
+/* Loading bar animation */
+@keyframes loading {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.loading-active {
+  animation: loading 2s ease-in-out;
+}
+
+/* Utility classes for brutalist design */
+@layer utilities {
+  .shadow-brutal {
+    box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
   }
 
-  .imgLight {
-    display: none;
+  .shadow-brutal-sm {
+    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
   }
-  .imgDark {
-    display: unset;
+
+  .shadow-brutal-lg {
+    box-shadow: 12px 12px 0px 0px rgba(0, 0, 0, 1);
   }
+
+  .border-brutal {
+    border: 4px solid #000;
+  }
+
+  .text-shadow-brutal {
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
+  }
+
+  .border-3 {
+    border-width: 3px;
+  }
+  .border-5 {
+    border-width: 5px;
+  }
+  .border-6 {
+    border-width: 6px;
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  .dark .shimmer {
+    background: linear-gradient(90deg, #2a2a2a 25%, #333 50%, #2a2a2a 75%);
+    background-size: 200% 100%;
+  }
+}
+
+/* Dark mode adjustments for components */
+.dark .bg-yellow-200 {
+  background-color: #7c2d12;
+}
+
+.dark .bg-pink-200 {
+  background-color: #831843;
+}
+
+.dark .bg-yellow-300 {
+  background-color: #92400e;
+}
+
+.dark .bg-cyan-300 {
+  background-color: #164e63;
+}
+
+.dark .bg-purple-300 {
+  background-color: #6b21a8;
+}
+
+.dark .bg-green-300 {
+  background-color: #14532d;
+}
+
+.dark .bg-orange-300 {
+  background-color: #9a3412;
+}
+
+.dark .bg-pink-300 {
+  background-color: #9f1239;
+}
+
+.dark .bg-pink-400 {
+  background-color: #be123c;
+}
+
+.dark .bg-cyan-300 {
+  background-color: #155e75;
+}
+
+.dark .bg-green-200 {
+  background-color: #166534;
+}
+
+.dark .text-black {
+  color: #ededed;
+}
+
+.dark .border-black {
+  border-color: #fbbf24;
+}
+
+/* Override box shadows for dark mode */
+.dark [class*="shadow-["] {
+  box-shadow: 8px 8px 0px 0px rgba(251, 191, 36, 0.5) !important;
+}
+
+.dark .shadow-\[4px_4px_0px_0px_rgba\(0\2c 0\2c 0\2c 1\)\] {
+  box-shadow: 4px 4px 0px 0px rgba(251, 191, 36, 0.5) !important;
+}
+
+.dark .shadow-\[6px_6px_0px_0px_rgba\(0\2c 0\2c 0\2c 1\)\] {
+  box-shadow: 6px 6px 0px 0px rgba(251, 191, 36, 0.5) !important;
+}
+
+.dark .shadow-\[8px_8px_0px_0px_rgba\(0\2c 0\2c 0\2c 1\)\] {
+  box-shadow: 8px 8px 0px 0px rgba(251, 191, 36, 0.5) !important;
+}
+
+.dark .shadow-\[-16px_0px_0px_0px_rgba\(0\2c 0\2c 0\2c 1\)\] {
+  box-shadow: -16px 0px 0px 0px rgba(251, 191, 36, 0.5) !important;
 }
