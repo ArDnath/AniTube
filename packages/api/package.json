@@ -1,0 +1,40 @@
+{
+  "name": "@anitube/api",
+  "version": "0.1.0",
+  "description": "Modern anime API wrapper for AniTube using Jikan and AniList",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "repository": "https://github.com/ArDnath/anitube",
+  "author": "Ariyaman Debnath <ariyamandebnath.ad@gmail.com>",
+  "license": "AGPL-3.0-only",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "lint": "eslint src --max-warnings 0",
+    "check-types": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "graphql": "^16.9.0",
+    "graphql-request": "^7.1.2",
+    "graphql-tag": "^2.12.6"
+  },
+  "devDependencies": {
+    "@anitube/eslint-config": "workspace:*",
+    "@anitube/tsconfig": "workspace:*",
+    "@types/node": "^22.15.3",
+    "eslint": "^9.39.1",
+    "typescript": "5.9.2"
+  }
+}
